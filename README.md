@@ -33,7 +33,7 @@ Then you should run: `npm install`
 
 And afterward, you supposed to run: `npm run serve`, to run the project in your local machine.
 
-Then head to the localhost on port 8080 `https://localhost:3030`
+Then head to the localhost on port 8080 `https://localhost:8080`
 
 Congrats the project is fully working.
 
