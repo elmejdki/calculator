@@ -1,73 +1,59 @@
-# Project Name
+# Calculator(Al Hassiba in Arabic)
 
-> One paragraph statement about the project.
-
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+> This is a simple calculator project built using ReactJS, in this case I'm building it only for practicing more of ReactJS and it's libraries, hope that you like it.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
-
+- ReactJS 17,
+- ReactDOM 17,
+- Webpack,
+- Express,
+- NodeJs,
+- Babel
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://al-hassiba.herokuapp.com/)
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
+In order to have this project up and running you will need:
 
+- NodeJS 10+
 ### Setup
+First, you need to clone this project using one of the links above, using this command:
 
-### Install
+```Javascript
 
-### Usage
+git clone RESPOSITRY_LINK
 
-### Run tests
+```
 
-### Deployment
+Then you should run: `npm install`
 
+And afterward, you supposed to run: `npm run serve`, to run the project in your local machine.
 
+Then head to the localhost on port 8080 `https://localhost:8080`
+
+Congrats the project is fully working.
 
 ## Authors
 
-👤 **Author1**
+👤 **Zakariae El Mejdki**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@elmejdki](https://github.com/elmejdki)
+- Twitter: [@zakariae_elmejdki](https://twitter.com/zakariaemejdki)
+- Linkedin: [Zakariae El Mejdki](https://www.linkedin.com/in/zakariaeelmejdki/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/elmejdki/calculator/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
