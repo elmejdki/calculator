@@ -2,7 +2,7 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "This is a simple calculator ReactJS app that was build only for the sake of practicing",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "serve": "webpack serve",
