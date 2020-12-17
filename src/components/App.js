@@ -1,10 +1,8 @@
 import React from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
+// eslint-disable-next-line no-unused-vars
 import calculate from '../logic/calculate';
-
-// eslint-disable-next-line no-console
-console.log(calculate({ total: 12, next: 23, operation: 'X' }, 'X'));
 
 const App = () => (
   <>

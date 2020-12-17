@@ -8,13 +8,17 @@ const operate = (numberOne, numberTwo, operation) => {
     case '+':
       return firstNumber.plus(secondNumber).toNumber();
     case '÷':
-      return firstNumber.div(secondNumber).toNumber();
+      try {
+        return firstNumber.div(secondNumber).toNumber();
+      } catch (e) {
+        return 'ERROR';
+      }
     case '-':
       return firstNumber.minus(secondNumber).toNumber();
     case 'X':
       return firstNumber.times(secondNumber).toNumber();
     case '%':
-      return firstNumber.div(100).toNumber();
+      return firstNumber.times(Big(0.01)).toNumber();
     default:
       return -1;
   }

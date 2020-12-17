@@ -1,121 +1,100 @@
 import operate from './operate';
 
 const calculate = ({ total, next, operation }, buttonName) => {
-  switch (buttonName) {
-    case 'AC':
+  const operations = ['%', '÷', '+', '-', 'X'];
+  const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  if (buttonName === 'AC') {
+    return {
+      total: null,
+      next: null,
+      operation: null,
+    };
+  }
+
+  if (buttonName === '+/-' && !next && total && total !== 'ERROR') {
+    return {
+      total: (-total).toString(),
+      next,
+      operation,
+    };
+  }
+
+  if (buttonName === '+/-' && next && total !== 'ERROR') {
+    return {
+      total,
+      next: (-next).toString(),
+      operation,
+    };
+  }
+
+  if (operations.includes(buttonName) && next && total) {
+    return {
+      total: operate(total, next, buttonName),
+      next: null,
+      operation: null,
+    };
+  }
+
+  if (operations.includes(buttonName) && !next && total) {
+    return {
+      total,
+      next,
+      operation: buttonName,
+    };
+  }
+
+  if (operations.includes(buttonName) && next && !total) {
+    return {
+      total: next,
+      next,
+      operation: buttonName,
+    };
+  }
+
+  if (nums.includes(buttonName)) {
+    return {
+      total,
+      next: next ? `${next}${buttonName}` : `${buttonName}`,
+      operation,
+    };
+  }
+
+  if (total === 'ERROR') {
+    return {
+      total: null,
+      next: null,
+      operation: null,
+    };
+  }
+
+  if (buttonName === '=') {
+    return {
+      total: operate(total, next, operation),
+      next: null,
+      operation: null,
+    };
+  }
+
+  if (buttonName === '.') {
+    if (!next) {
       return {
-        total: 0,
-        next: 0,
-        operation: 'AC',
-      };
-    case '+/-':
-      return {
-        total: -total,
-        next: -next,
+        total,
+        next: '0.',
         operation,
       };
-    case '%':
-      return {
-        total: operate(total, next, '%'),
-        next: 0,
-        operation: '%',
-      };
-    case '÷':
-      return {
-        total: operate(total, next, '÷'),
-        next: 0,
-        operation: '÷',
-      };
-    case 'X':
-      return {
-        total: operate(total, next, 'X'),
-        next: 0,
-        operation: 'X',
-      };
-    case '+':
-      return {
-        total: operate(total, next, '+'),
-        next: 0,
-        operation: '+',
-      };
-    case '-':
-      return {
-        total: operate(total, next, '-'),
-        next: 0,
-        operation: '-',
-      };
-    case '.':
+    }
+
+    if (next && !next.includes('.')) {
       return {
         total,
         next: `${next}.`,
         operation,
       };
-    case '7':
-      return {
-        total,
-        next: Number(`${next}7`),
-        operation,
-      };
-    case '8':
-      return {
-        total,
-        next: Number(`${total}8`),
-        operation,
-      };
-    case '9':
-      return {
-        total,
-        next: Number(`${total}9`),
-        operation,
-      };
-    case '4':
-      return {
-        total,
-        next: Number(`${total}4`),
-        operation,
-      };
-    case '5':
-      return {
-        total,
-        next: Number(`${total}5`),
-        operation,
-      };
-    case '6':
-      return {
-        total,
-        next: Number(`${total}6`),
-        operation,
-      };
-    case '3':
-      return {
-        total,
-        next: Number(`${total}3`),
-        operation,
-      };
-    case '2':
-      return {
-        total,
-        next: Number(`${total}2`),
-        operation,
-      };
-    case '1':
-      return {
-        total,
-        next: Number(`${total}1`),
-        operation,
-      };
-    case '=':
-      return {
-        total: 0,
-        // eslint-disable-next-line no-eval
-        next: eval(`${next} ${operation} ${total}`),
-        operation: '',
-      };
-    default:
-      return {
-        total, next, operation,
-      };
+    }
   }
+
+  return { total, next, operation };
 };
 
 export default calculate;
