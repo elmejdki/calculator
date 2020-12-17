@@ -3,11 +3,11 @@ import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 
 const App = () => (
-  <React.Fragment>
+  <div>
     <h1>App Component</h1>
-    <Display result={'0'} />
+    <Display result="0" />
     <ButtonPanel />
-  </React.Fragment>
+  </div>
 );
 
 export default App;
