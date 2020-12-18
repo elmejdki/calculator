@@ -36,9 +36,9 @@ const calculate = ({ total, next, operation }, buttonName) => {
     };
   }
 
-  if (operations.includes(buttonName) && next && !total) {
+  if (operations.includes(buttonName) && next && total && operation) {
     return {
-      total: next,
+      total: operate(total, next, operation),
       next: null,
       operation: buttonName,
     };
