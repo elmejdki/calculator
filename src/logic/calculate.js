@@ -28,6 +28,22 @@ const calculate = ({ total, next, operation }, buttonName) => {
     };
   }
 
+  if (buttonName === '%' && next && !total) {
+    return {
+      total: operate(next, 0, '%'),
+      next: null,
+      operation,
+    };
+  }
+
+  if (buttonName === '%' && !next && total) {
+    return {
+      total: operate(total, 0, '%'),
+      next: null,
+      operation,
+    };
+  }
+
   if (operations.includes(buttonName) && next && !total) {
     return {
       total: next,
