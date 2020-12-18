@@ -14,7 +14,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
 
   if (buttonName === '+/-' && !next && total && total !== 'ERROR') {
     return {
-      total: (-total).toString(),
+      total: -total,
       next,
       operation,
     };
@@ -23,20 +23,44 @@ const calculate = ({ total, next, operation }, buttonName) => {
   if (buttonName === '+/-' && next && total !== 'ERROR') {
     return {
       total,
-      next: (-next).toString(),
+      next: -next,
       operation,
     };
   }
 
-  if (operations.includes(buttonName) && next && total) {
+  if (buttonName === '%' && next && !total) {
     return {
-      total: operate(total, next, buttonName),
+      total: operate(next, 0, '%'),
       next: null,
-      operation: null,
+      operation,
     };
   }
 
-  if (operations.includes(buttonName) && !next && total) {
+  if (buttonName === '%' && !next && total) {
+    return {
+      total: operate(total, 0, '%'),
+      next: null,
+      operation,
+    };
+  }
+
+  if (operations.includes(buttonName) && next && !total) {
+    return {
+      total: next,
+      next: null,
+      operation: buttonName,
+    };
+  }
+
+  if (operations.includes(buttonName) && next && total && operation) {
+    return {
+      total: operate(total, next, operation),
+      next: null,
+      operation: buttonName,
+    };
+  }
+
+  if (operations.includes(buttonName) && total && !next) {
     return {
       total,
       next,
@@ -44,11 +68,11 @@ const calculate = ({ total, next, operation }, buttonName) => {
     };
   }
 
-  if (operations.includes(buttonName) && next && !total) {
+  if (nums.includes(buttonName) && total && !operation && !next) {
     return {
-      total: next,
+      total: total ? `${total}${buttonName}` : `${buttonName}`,
       next,
-      operation: buttonName,
+      operation,
     };
   }
 
@@ -68,7 +92,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
     };
   }
 
-  if (buttonName === '=') {
+  if (buttonName === '=' && total && next && operation) {
     return {
       total: operate(total, next, operation),
       next: null,
