@@ -16,16 +16,16 @@ const Header = () => (
       <NavLink
         className="flex center link"
         activeClassName="active"
-        to="/quote"
+        to="/calculator"
       >
-        Quote
+        Calcultor
       </NavLink>
       <NavLink
         className="flex center link"
         activeClassName="active"
-        to="/calculator"
+        to="/quote"
       >
-        Calcultor
+        Quote
       </NavLink>
     </nav>
   </div>
