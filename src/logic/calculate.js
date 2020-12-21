@@ -101,7 +101,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
   }
 
   if (buttonName === '.') {
-    if (!next) {
+    if ((!total && !next) || (total && operation && !next)) {
       return {
         total,
         next: '0.',
