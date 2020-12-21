@@ -1,0 +1,55 @@
+.button {
+  width: $button-size;
+  height: $button-size;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: $dark-blue;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: lighten($dark-blue, 20);
+}
+
+.button:focus {
+  background-color: lighten($dark-blue, 10);
+}
+
+.double-button {
+  width: $button-size * 2;
+  background-color: $red;
+}
+
+.operation-btn {
+  background-color: $m-dark-red;
+}
+
+.operation-btn:hover {
+  background-color: lighten($m-dark-red, 20);
+}
+
+.operation-btn:focus {
+  background-color: lighten($m-dark-red, 10);
+}
+
+.double-button:hover {
+  background-color: darken($red, 20);
+}
+
+.double-button:focus {
+  background-color: darken($red, 10);
+}
+
+@media only screen and (max-width: 700px) {
+  .button {
+    width: $button-v-size;
+    height: $button-v-size;
+  }
+
+  .double-button {
+    width: $button-v-size * 2;
+  }
+}

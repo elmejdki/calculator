@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ name, handleClick }) => (
+const Button = ({ name, handleClick, specialClass }) => (
   <button
+    className={`button ${specialClass}`}
     type="button"
     onClick={() => { handleClick(name); }}
   >
@@ -13,6 +14,11 @@ const Button = ({ name, handleClick }) => (
 Button.propTypes = {
   name: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
+  specialClass: PropTypes.string,
+};
+
+Button.defaultProps = {
+  specialClass: '',
 };
 
 export default Button;

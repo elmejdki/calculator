@@ -1,0 +1,10 @@
+.app-container {
+  height: 100vh;
+  max-width: $app-width;
+}
+
+@media only screen and (max-width: 700px) {
+  .app-container {
+    max-width: $app-v-width;
+  }
+}

@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 const Display = ({ result }) => (
   <>
-    <p>{result}</p>
+    <p
+      className="flex display"
+    >
+      {result}
+    </p>
   </>
 );
 

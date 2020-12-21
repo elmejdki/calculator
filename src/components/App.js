@@ -1,43 +1,42 @@
-import React, { Component } from 'react';
+import React, { useReducer } from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 import calculate from '../logic/calculate';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [state, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case 'CALCULATE':
+        return calculate(state, action.operation);
+      default:
+        return state;
+    }
+  }, {
+    total: null,
+    next: null,
+    operation: null,
+  });
 
-    this.state = {
-      total: null,
-      next: null,
-      operation: null,
-    };
+  const handleClick = operation => {
+    dispatch({ type: 'CALCULATE', operation });
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-  }
+  const { next, total, operation } = state;
 
-  handleClick(operation) {
-    this.setState(
-      prevState => (calculate(prevState, operation)),
-    );
-  }
-
-  render() {
-    const { next, total, operation } = this.state;
-
-    return (
-      <>
-        <Display
-          result={
-            `${(!total && next) || total || ''}
-             ${operation || ''}
-             ${(total && next) || ''}`
-          }
-        />
-        <ButtonPanel clickHandler={this.handleClick} />
-      </>
-    );
-  }
-}
+  return (
+    <div className="flex flex-column app-container center">
+      <Display
+        result={
+          `${(!total && next) || total || '0'}
+           ${operation || ''}
+           ${(total && next) || ''}`
+        }
+      />
+      <ButtonPanel
+        clickHandler={handleClick}
+      />
+    </div>
+  );
+};
 
 export default App;
