@@ -24,16 +24,18 @@ const App = () => {
   const { next, total, operation } = state;
 
   return (
-    <>
+    <div className="flex flex-column app-container center">
       <Display
         result={
-          `${(!total && next) || total || ''}
+          `${(!total && next) || total || '0'}
            ${operation || ''}
            ${(total && next) || ''}`
         }
       />
-      <ButtonPanel clickHandler={handleClick} />
-    </>
+      <ButtonPanel
+        clickHandler={handleClick}
+      />
+    </div>
   );
 };
 
