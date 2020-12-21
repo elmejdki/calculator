@@ -1,13 +1,26 @@
 #app {
-  display: flex;
   width: 100vw;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
 }
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
 }
 
 .flex-column {
