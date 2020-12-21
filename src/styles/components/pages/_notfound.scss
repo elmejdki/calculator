@@ -1,0 +1,21 @@
+.not-found {
+  background-color: black;
+
+  h1 {
+    font-size: 250px;
+    color: $red;
+  }
+
+  p {
+    font-size: 20px;
+    color: $dark-red;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .not-found {
+    h1 {
+      font-size: 180px;
+    }
+  }
+}
