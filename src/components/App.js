@@ -1,42 +1,31 @@
-import React, { useReducer } from 'react';
-import Display from './Display';
-import ButtonPanel from './ButtonPanel';
-import calculate from '../logic/calculate';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import CalculatorPage from './pages/CalculatorPage';
+import HomePage from './pages/HomePage';
+import QuotePage from './pages/QuotePage';
+import NotFoundPage from './pages/NotFoundPage';
+import Header from './Header';
 
-const App = () => {
-  const [state, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case 'CALCULATE':
-        return calculate(state, action.operation);
-      default:
-        return state;
-    }
-  }, {
-    total: null,
-    next: null,
-    operation: null,
-  });
-
-  const handleClick = operation => {
-    dispatch({ type: 'CALCULATE', operation });
-  };
-
-  const { next, total, operation } = state;
-
-  return (
-    <div className="flex flex-column app-container center">
-      <Display
-        result={
-          `${(!total && next) || total || '0'}
-           ${operation || ''}
-           ${(total && next) || ''}`
-        }
-      />
-      <ButtonPanel
-        clickHandler={handleClick}
-      />
-    </div>
-  );
-};
+const App = () => (
+  <>
+    <Router>
+      <div>
+        <Header />
+        <div className="grid center scroll max-height">
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/calculator" component={CalculatorPage} />
+            <Route path="/quote" component={QuotePage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
+  </>
+);
 
 export default App;

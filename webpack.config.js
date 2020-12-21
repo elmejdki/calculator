@@ -8,6 +8,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'build'),
+    historyApiFallback: true,
   },
   devtool: 'eval-cheap-module-source-map',
   module: {
