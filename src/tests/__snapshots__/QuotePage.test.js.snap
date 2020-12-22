@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly the Quote Page 1`] = `
+<div
+  className="max-height max-width quote"
+>
+  <h1>
+    Quote Of The Day:
+  </h1>
+  <div>
+    <p>
+      <strong>
+        Mathematics 
+      </strong>
+      is not about numbers, equations, computations or algorithms it is about
+      <strong>
+         Understanding.
+      </strong>
+      <span>
+         ~ Wiliam Paul Thurston
+      </span>
+    </p>
+  </div>
+</div>
+`;
