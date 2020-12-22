@@ -1,4 +1,3 @@
-import Big from 'big.js';
 import operate from './operate';
 
 const calculate = ({ total, next, operation }, buttonName) => {
@@ -79,7 +78,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
 
   if (nums.includes(buttonName) && total && !operation && !next) {
     return {
-      total: total ? new Big(`${total}${buttonName}`).toNumber() : `${buttonName}`,
+      total: total ? `${total}${buttonName}` : `${buttonName}`,
       next,
       operation,
     };
@@ -88,7 +87,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
   if (nums.includes(buttonName)) {
     return {
       total,
-      next: next ? new Big(`${next}${buttonName}`).toNumber() : `${buttonName}`,
+      next: next ? `${next}${buttonName}` : `${buttonName}`,
       operation,
     };
   }
