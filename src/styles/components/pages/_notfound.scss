@@ -1,5 +1,5 @@
 .not-found {
-  background-color: black;
+  background-color: $dark-blue;
 
   h1 {
     font-size: 250px;
@@ -8,7 +8,7 @@
 
   p {
     font-size: 20px;
-    color: $dark-red;
+    color: lighten($red, 30);
   }
 }
 
