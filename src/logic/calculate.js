@@ -76,15 +76,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
     };
   }
 
-  if (nums.includes(buttonName) && total && !operation && !next) {
-    return {
-      total: total ? `${total}${buttonName}` : `${buttonName}`,
-      next,
-      operation,
-    };
-  }
-
-  if (nums.includes(buttonName)) {
+  if (nums.includes(buttonName) && ((total && operation) || (!total && !operation))) {
     return {
       total,
       next: next ? `${next}${buttonName}` : `${buttonName}`,
@@ -109,7 +101,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
       };
     }
 
-    if (next && !next.includes('.')) {
+    if (next && !next.toString().includes('.')) {
       return {
         total,
         next: `${next}.`,
