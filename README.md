@@ -2,6 +2,8 @@
 
 > This is a simple calculator project built using ReactJS, in this case I'm building it only for practicing more of ReactJS and it's libraries, hope that you like it.
 
+![demo image](./screenshot.png)
+
 ## Built With
 
 - ReactJS 17,

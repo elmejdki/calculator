@@ -1,6 +1,13 @@
 .app-container {
-  height: 100vh;
   max-width: $app-width;
+}
+
+.max-height {
+  height: calc(100vh - #{$header-height});
+}
+
+.max-width {
+  width: 100vw;
 }
 
 @media only screen and (max-width: 700px) {

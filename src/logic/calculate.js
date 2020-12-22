@@ -1,8 +1,17 @@
+import Big from 'big.js';
 import operate from './operate';
 
 const calculate = ({ total, next, operation }, buttonName) => {
   const operations = ['%', '÷', '+', '-', 'X'];
   const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  if (total === 'ERROR' || next === Infinity || total === Infinity) {
+    return {
+      total: null,
+      next: null,
+      operation: null,
+    };
+  }
 
   if (buttonName === 'AC') {
     return {
@@ -70,7 +79,7 @@ const calculate = ({ total, next, operation }, buttonName) => {
 
   if (nums.includes(buttonName) && total && !operation && !next) {
     return {
-      total: total ? `${total}${buttonName}` : `${buttonName}`,
+      total: total ? new Big(`${total}${buttonName}`).toNumber() : `${buttonName}`,
       next,
       operation,
     };
@@ -79,16 +88,8 @@ const calculate = ({ total, next, operation }, buttonName) => {
   if (nums.includes(buttonName)) {
     return {
       total,
-      next: next ? `${next}${buttonName}` : `${buttonName}`,
+      next: next ? new Big(`${next}${buttonName}`).toNumber() : `${buttonName}`,
       operation,
-    };
-  }
-
-  if (total === 'ERROR') {
-    return {
-      total: null,
-      next: null,
-      operation: null,
     };
   }
 

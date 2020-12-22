@@ -1,0 +1,27 @@
+.quote {
+  padding: 30px;
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  div {
+    display: flex;
+    width: 100%;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      max-width: 469px;
+      font-size: 25px;
+
+      span {
+        margin-top: 20px;
+        display: block;
+        text-align: right;
+      }
+    }
+  }
+}
