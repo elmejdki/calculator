@@ -6,6 +6,7 @@ exports[`renders correctly the Calculator Page 1`] = `
 >
   <p
     className="flex display"
+    role="paragraph"
   >
     0
            
