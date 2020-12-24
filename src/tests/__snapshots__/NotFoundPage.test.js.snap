@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly the NotFound Page 1`] = `
+<div
+  className="flex center flex-column not-found max-height max-width"
+>
+  <h1>
+    404
+  </h1>
+  <p>
+    Page Not Found
+  </p>
+</div>
+`;

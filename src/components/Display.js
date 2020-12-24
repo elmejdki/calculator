@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Display = ({ result }) => (
   <>
     <p
+      role="main"
       className="flex display"
     >
       {result}
